@@ -814,7 +814,7 @@
 									"});",
 									"",
 									"pm.test(\"Returned error message is expected\", function() {",
-									"   pm.expect(responseJSON.error).to.eql(\"Invalid integer type. Please use two numbers as parameters to calculate difference\");",
+									"   pm.expect(responseJSON.error).to.eql(\"Invalid integer type. Please use two numbers as parameters to calculate product\");",
 									"});"
 								],
 								"type": "text/javascript"
@@ -873,7 +873,7 @@
 									"});",
 									"",
 									"pm.test(\"Returned error message is expected\", function() {",
-									"   pm.expect(responseJSON.error).to.eql(\"Invalid integer type. Please use two numbers as parameters to calculate difference\");",
+									"   pm.expect(responseJSON.error).to.eql(\"Invalid integer type. Please use two numbers as parameters to calculate product\");",
 									"});"
 								],
 								"type": "text/javascript"
