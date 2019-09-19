@@ -9,6 +9,7 @@ const { SERVER_PORT } = process.env
 app.use(express.json())
 
 app.post('/api/addition', math_ctrl.add)
+app.post('/api/subtraction', math_ctrl.subtract)
 
 app.listen(SERVER_PORT, () => {
     console.log(`Listening on ${SERVER_PORT}`)

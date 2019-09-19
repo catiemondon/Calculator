@@ -454,8 +454,8 @@
 									"    pm.expect(responseJSON.total).to.be.a('number');",
 									"});",
 									"",
-									"pm.test(\"Total on object should equal one point nine\", function(){",
-									"  pm.expect(responseJSON.total).to.eql(1.9);",
+									"pm.test(\"Total on object should equal two point six\", function(){",
+									"  pm.expect(responseJSON.total).to.deep.equal(2.5999999999999996);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -474,7 +474,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"num1\": 5.6,\n\t\"num2\": 3.7\n}"
+							"raw": "{\n\t\"num1\": 5.6,\n\t\"num2\": 3\n}"
 						},
 						"url": {
 							"raw": "http://localhost:4444/api/subtraction",
