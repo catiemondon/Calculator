@@ -189,7 +189,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Sum Error for strings",
+					"name": "Get Sum Error for non integers",
 					"event": [
 						{
 							"listen": "test",
@@ -244,7 +244,7 @@
 								"addition"
 							]
 						},
-						"description": "Makes sure that error is returned if data types of num1 and num2 are strings"
+						"description": "Makes sure that error is returned if data types of num1 and num2 are not integers"
 					},
 					"response": []
 				},
@@ -492,7 +492,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Difference Error for strings",
+					"name": "Get Difference Error for non integers",
 					"event": [
 						{
 							"listen": "test",
@@ -604,6 +604,306 @@
 							"path": [
 								"api",
 								"subtraction"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Tests",
+			"item": [
+				{
+					"name": "Get Product of positive whole integers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1629f5a5-d94a-4855-9bc3-97b3a2628fc8",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function() {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Total on object should be a number\", function(){",
+									"    pm.expect(responseJSON.total).to.be.a('number');",
+									"});",
+									"",
+									"pm.test(\"Total on object should equal six\", function(){",
+									"  pm.expect(responseJSON.total).to.eql(6);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": 2,\n\t\"num2\": 3\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/multiplication",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"multiplication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product of negative whole numbers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2d4fd557-b504-47c9-bd8b-e6cb7116d755",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function() {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Total on object should be a number\", function(){",
+									"    pm.expect(responseJSON.total).to.be.a('number');",
+									"});",
+									"",
+									"pm.test(\"Total on object should equal negative six\", function(){",
+									"  pm.expect(responseJSON.total).to.eql(-6);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": -3,\n\t\"num2\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/multiplication",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"multiplication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product of decimal integers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ffc28565-3847-4615-b3ab-7b2784711fc9",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function() {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Total on object should be a number\", function(){",
+									"    pm.expect(responseJSON.total).to.be.a('number');",
+									"});",
+									"",
+									"pm.test(\"Total on object should equal six point four\", function(){",
+									"  pm.expect(responseJSON.total).to.eql(6.4);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": 3.2,\n\t\"num2\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/multiplication",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"multiplication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Error for non integers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0961f104-5703-4e8d-be12-e7f08c6f3458",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"    pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Error on object should be a string\", function(){",
+									"    pm.expect(responseJSON.error).to.be.a('string')",
+									"});",
+									"",
+									"pm.test(\"Returned error message is expected\", function() {",
+									"   pm.expect(responseJSON.error).to.eql(\"Invalid integer type. Please use two numbers as parameters to calculate difference\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": \"lkhoih\",\n\t\"num2\": 3\n\t\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/multiplication",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"multiplication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Error for one parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "335a8f00-9444-4152-b479-5c3d6b47cf29",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"    pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Error on object should be a string\", function(){",
+									"    pm.expect(responseJSON.error).to.be.a('string');",
+									"});",
+									"",
+									"pm.test(\"Returned error message is expected\", function() {",
+									"   pm.expect(responseJSON.error).to.eql(\"Invalid integer type. Please use two numbers as parameters to calculate difference\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/multiplication",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"multiplication"
 							]
 						}
 					},
