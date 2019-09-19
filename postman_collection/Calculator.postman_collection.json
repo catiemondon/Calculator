@@ -6,305 +6,610 @@
 	},
 	"item": [
 		{
-			"name": "Get Sum of positive whole integers",
-			"event": [
+			"name": "Sum Tests",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "846da6a0-5374-4b1c-8775-7c836ef69e1b",
-						"exec": [
-							"const responseJSON = pm.response.json();",
-							"",
-							"pm.test(\"Status code is 200\", function() {",
-							"  pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Returned data is an object\", function() {",
-							"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
-							"});",
-							"",
-							"pm.test(\"Total on object should be a number\", function(){",
-							"    pm.expect(responseJSON.total).to.be.a('number');",
-							"});",
-							"",
-							"pm.test(\"Total on object should equal 6\", function(){",
-							"  pm.expect(responseJSON.total).to.eql(6);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"num1\": 2,\n\t\"num2\": 4\n}"
-				},
-				"url": {
-					"raw": "http://localhost:4444/api/addition",
-					"protocol": "http",
-					"host": [
-						"localhost"
+					"name": "Get Sum of positive whole integers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "846da6a0-5374-4b1c-8775-7c836ef69e1b",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function() {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Total on object should be a number\", function(){",
+									"    pm.expect(responseJSON.total).to.be.a('number');",
+									"});",
+									"",
+									"pm.test(\"Total on object should equal four\", function(){",
+									"  pm.expect(responseJSON.total).to.eql(4);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"port": "4444",
-					"path": [
-						"api",
-						"addition"
-					]
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": 2,\n\t\"num2\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/addition",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"addition"
+							]
+						},
+						"description": "Gets sum of two, whole, positive numbers by sending numbers on body of request"
+					},
+					"response": []
 				},
-				"description": "Gets sum of two, whole, positive numbers by sending numbers on body of request"
-			},
-			"response": []
+				{
+					"name": "Get Sum of negative whole integers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e410c9b0-dea0-4257-a1d3-97188ef2c17c",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function() {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Total on object should be a number\", function(){",
+									"    pm.expect(responseJSON.total).to.be.a('number');",
+									"});",
+									"",
+									"pm.test(\"Total on object should equal 6\", function(){",
+									"  pm.expect(responseJSON.total).to.eql(-6);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": -2,\n\t\"num2\": -4\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/addition",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"addition"
+							]
+						},
+						"description": "Gets sum of two, whole, negative numbers by sending numbers on body of request"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sum of decimal integers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "742d102d-c1b8-4a05-8ff3-d2658369c719",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function() {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Total on object should be a number\", function(){",
+									"    pm.expect(responseJSON.total).to.be.a('number');",
+									"});",
+									"",
+									"pm.test(\"Total on object should equal 6\", function(){",
+									"  pm.expect(responseJSON.total).to.eql(6);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\" : 3.7,\n\t\"num2\": 2.3\n\t\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/addition",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"addition"
+							]
+						},
+						"description": "Gets sum of two decimal numbers, by sending numbers on body of request"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sum Error for strings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28947532-e77e-4b5e-ba1a-feb0851ecaf1",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"    pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Error on object should be a string\", function(){",
+									"    pm.expect(responseJSON.error).to.be.a('string')",
+									"});",
+									"",
+									"pm.test(\"Returned error message is expected\", function() {",
+									"   pm.expect(responseJSON.error).to.eql(\"Invalid integer type. Please use two numbers as parameters to calculate sum\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": \"lkioih\",\n\t\"num2\": 3\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/addition",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"addition"
+							]
+						},
+						"description": "Makes sure that error is returned if data types of num1 and num2 are strings"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sum Error for one parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5a971120-2b97-4a28-9c05-726597c8e200",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"    pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Error on object should be a string\", function(){",
+									"    pm.expect(responseJSON.error).to.be.a('string');",
+									"});",
+									"",
+									"pm.test(\"Returned error message is expected\", function() {",
+									"   pm.expect(responseJSON.error).to.eql(\"Invalid integer type. Please use two numbers as parameters to calculate sum\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/addition",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"addition"
+							]
+						},
+						"description": "Makes sure that error is returned if only one parameter is sent to the function"
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"name": "Get Sum of negative whole integers",
-			"event": [
+			"name": "Difference Tests",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "e410c9b0-dea0-4257-a1d3-97188ef2c17c",
-						"exec": [
-							"const responseJSON = pm.response.json();",
-							"",
-							"pm.test(\"Status code is 200\", function() {",
-							"  pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Returned data is an object\", function() {",
-							"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
-							"});",
-							"",
-							"pm.test(\"Total on object should be a number\", function(){",
-							"    pm.expect(responseJSON.total).to.be.a('number');",
-							"});",
-							"",
-							"pm.test(\"Total on object should equal 6\", function(){",
-							"  pm.expect(responseJSON.total).to.eql(-6);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"num1\": -2,\n\t\"num2\": -4\n}"
-				},
-				"url": {
-					"raw": "http://localhost:4444/api/addition",
-					"protocol": "http",
-					"host": [
-						"localhost"
+					"name": "Get Difference of positive whole integers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9d146846-0983-4179-9d4c-a1cb0f73df5d",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function() {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Total on object should be a number\", function(){",
+									"    pm.expect(responseJSON.total).to.be.a('number');",
+									"});",
+									"",
+									"pm.test(\"Total on object should equal two\", function(){",
+									"  pm.expect(responseJSON.total).to.eql(2);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"port": "4444",
-					"path": [
-						"api",
-						"addition"
-					]
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": 4,\n\t\"num2\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/subtraction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"subtraction"
+							]
+						}
+					},
+					"response": []
 				},
-				"description": "Gets sum of two, whole, negative numbers by sending numbers on body of request"
-			},
-			"response": []
-		},
-		{
-			"name": "Get Sum of decimal integers",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "742d102d-c1b8-4a05-8ff3-d2658369c719",
-						"exec": [
-							"const responseJSON = pm.response.json();",
-							"",
-							"pm.test(\"Status code is 200\", function() {",
-							"  pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Returned data is an object\", function() {",
-							"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
-							"});",
-							"",
-							"pm.test(\"Total on object should be a number\", function(){",
-							"    pm.expect(responseJSON.total).to.be.a('number');",
-							"});",
-							"",
-							"pm.test(\"Total on object should equal 6\", function(){",
-							"  pm.expect(responseJSON.total).to.eql(6);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"num1\" : 3.7,\n\t\"num2\": 2.3\n\t\n}"
-				},
-				"url": {
-					"raw": "http://localhost:4444/api/addition",
-					"protocol": "http",
-					"host": [
-						"localhost"
+					"name": "Get Difference of negative whole integers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "307c8260-e68a-4390-b4a2-adf28da01081",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function() {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Total on object should be a number\", function(){",
+									"    pm.expect(responseJSON.total).to.be.a('number');",
+									"});",
+									"",
+									"pm.test(\"Total on object should equal negative six\", function(){",
+									"  pm.expect(responseJSON.total).to.eql(-6);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"port": "4444",
-					"path": [
-						"api",
-						"addition"
-					]
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": -2,\n\t\"num2\": 4\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/subtraction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"subtraction"
+							]
+						}
+					},
+					"response": []
 				},
-				"description": "Gets sum of two decimal numbers, by sending numbers on body of request"
-			},
-			"response": []
-		},
-		{
-			"name": "Get Sum Error for strings",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "28947532-e77e-4b5e-ba1a-feb0851ecaf1",
-						"exec": [
-							"const responseJSON = pm.response.json();",
-							"",
-							"pm.test(\"Status code is 400\", function() {",
-							"    pm.response.to.have.status(400);",
-							"});",
-							"",
-							"pm.test(\"Returned data is an object\", function() {",
-							"    pm.expect(Object.isObject(responseJSON)).to.eql(true);",
-							"});",
-							"",
-							"pm.test(\"Error on object should be a string\", function(){",
-							"    pm.expect(responseJSON.error).to.be.a('string')",
-							"});",
-							"",
-							"pm.test(\"Returned error message is expected\", function() {",
-							"   pm.expect(responseJSON.error).to.eql(\"Invalid integer type. Please use two numbers as parameters to calculate sum\");",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"num1\": \"lkioih\",\n\t\"num2\": 3\n}"
-				},
-				"url": {
-					"raw": "http://localhost:4444/api/addition",
-					"protocol": "http",
-					"host": [
-						"localhost"
+					"name": "Get Difference of decimal integers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a4e11d76-c240-418f-9418-ee38bd854f8f",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function() {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Total on object should be a number\", function(){",
+									"    pm.expect(responseJSON.total).to.be.a('number');",
+									"});",
+									"",
+									"pm.test(\"Total on object should equal one point nine\", function(){",
+									"  pm.expect(responseJSON.total).to.eql(1.9);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"port": "4444",
-					"path": [
-						"api",
-						"addition"
-					]
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": 5.6,\n\t\"num2\": 3.7\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/subtraction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"subtraction"
+							]
+						}
+					},
+					"response": []
 				},
-				"description": "Makes sure that error is returned if data types of num1 and num2 are strings"
-			},
-			"response": []
-		},
-		{
-			"name": "Get Sum Error for one parameter",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "5a971120-2b97-4a28-9c05-726597c8e200",
-						"exec": [
-							"const responseJSON = pm.response.json();",
-							"",
-							"pm.test(\"Status code is 400\", function() {",
-							"    pm.response.to.have.status(400);",
-							"});",
-							"",
-							"pm.test(\"Returned data is an object\", function() {",
-							"    pm.expect(Object.isObject(responseJSON)).to.eql(true);",
-							"});",
-							"",
-							"pm.test(\"Error on object should be a string\", function(){",
-							"    pm.expect(responseJSON.error).to.be.a('string');",
-							"});",
-							"",
-							"pm.test(\"Returned error message is expected\", function() {",
-							"   pm.expect(responseJSON.error).to.eql(\"Invalid integer type. Please use two numbers as parameters to calculate sum\");",
-							"});",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"num1\": 1\n}"
-				},
-				"url": {
-					"raw": "http://localhost:4444/api/addition",
-					"protocol": "http",
-					"host": [
-						"localhost"
+					"name": "Get Difference Error for strings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "db872841-9c92-4fa4-a030-2eb0d61582d9",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"    pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Error on object should be a string\", function(){",
+									"    pm.expect(responseJSON.error).to.be.a('string')",
+									"});",
+									"",
+									"pm.test(\"Returned error message is expected\", function() {",
+									"   pm.expect(responseJSON.error).to.eql(\"Invalid integer type. Please use two numbers as parameters to calculate difference\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"port": "4444",
-					"path": [
-						"api",
-						"addition"
-					]
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": \"hello\",\n\t\"num2\": 4\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/subtraction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"subtraction"
+							]
+						}
+					},
+					"response": []
 				},
-				"description": "Makes sure that error is returned if only one parameter is sent to the function"
-			},
-			"response": []
+				{
+					"name": "Get Difference Error for one parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4b16a416-7b56-409e-b90e-82a99a98ac35",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"    pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Error on object should be a string\", function(){",
+									"    pm.expect(responseJSON.error).to.be.a('string');",
+									"});",
+									"",
+									"pm.test(\"Returned error message is expected\", function() {",
+									"   pm.expect(responseJSON.error).to.eql(\"Invalid integer type. Please use two numbers as parameters to calculate difference\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/subtraction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"subtraction"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
