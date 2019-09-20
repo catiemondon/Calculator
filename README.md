@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Calculator How-To:
 
-In the project directory, you can run:
+After cd-ing into the project directory, for intial set-up:
 
-### `npm start`
+### 1: Run `npm i`
 
-Runs the app in the development mode.<br>
+This will bring in all project dependencies.
+
+### 2: Create a .env file at the root of the project
+This will be used to store our server port.
+ <b>*Make sure to add the .env to the .gitignore if you are going to use any API keys or store any sensitive information in the .env </b>
+
+### 3: Add `SERVER_PORT=4444`
+
+This is the server port that this project will run on. 
+
+### 4: Run `nodemon`
+
+This will kick up our server.
+
+### 5: `npm start`
+Run this in a separate terminal so both the front end and back end can run at the same time.
+This runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
+##To Test:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+###Using Newman-
+### `npm i -g newman`
 
-### `npm run build`
+Installs newman testing library globally to your machine.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### `newman run postman_collection/Calculator.postman_collection.json`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This will run the entire applications postman test collection in the terminal.<br>
 
-### `npm run eject`
+###Using Postman-
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Import the collection found in the folder `postman_collection` into postman, and run the collection via postmans collection runner.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## To Use the Command Line Calculator Tool:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `npm i -g ./`
 
-## Learn More
+This will install the command `calculator` to your machine
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `calculator`
+You can use any of the following commands following the calculator command in the terminal: <br>
+<b>Commands:</b> <br>
+  `add <num1> <num2> `     : adds two numbers together <br>
+  `subtract <num1> <num2> ` : subtracts a number from another<br>
+  `multiply <num1> <num2>` : multiplies one number by another<br>
+  `divide <num1> <num2>`    : divides one number by another <br>
+  `plugin <num1> <operator> <num2> `: uses two numbers and a custom operator to return total (operator must be in a string)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
