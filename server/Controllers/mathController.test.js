@@ -4,7 +4,7 @@
 //     expect(math_functions.add(2, 'lkhoih')).toEqual('Please use two numbers as parameters to calculate sum')
 // })
 
-// test('Error string is returned if only one parameter', () =>{
+// test('Error string is returned if only one parameter', () => {
 //     expect(math_functions.add(2)).toEqual('Please use two numbers as parameters to calculate sum')
 // })
 

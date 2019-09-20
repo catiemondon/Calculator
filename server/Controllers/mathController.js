@@ -46,7 +46,7 @@ module.exports = {
     plugin: (req, res) => {
        
         //to inject a custom mathematical operation, a developer must send 2 numbers and the mathematical operator needed to perform the operation on the body of the request
-        const {operator, num1, num2} = req.body
+        const { operator, num1, num2 } = req.body
 
         //this will not run if there is no operator, num1, and num2 on body to help restrict who has access to the eval method. Typically would also add a check for authenticated/admin, but due to time, will forgoe that measure
         if(operator &&  num1 && num2){
