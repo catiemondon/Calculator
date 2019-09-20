@@ -1210,6 +1210,247 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Plugin Tests",
+			"item": [
+				{
+					"name": "Get Remainder for modulus operator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "82a99498-abe3-455f-8db6-0a4e9d010e63",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function() {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Total on object should be a number\", function(){",
+									"    pm.expect(responseJSON.total).to.be.a('number');",
+									"});",
+									"",
+									"pm.test(\"Total on object should equal zero\", function(){",
+									"  pm.expect(responseJSON.total).to.eql(0);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": 2,\n\t\"operator\": \"%\",\n\t\"num2\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/plugin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"plugin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Squared Number for exponent of 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7245c518-7aea-4308-93c0-a45c772adb89",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function() {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"  pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Total on object should be a number\", function(){",
+									"    pm.expect(responseJSON.total).to.be.a('number');",
+									"});",
+									"",
+									"pm.test(\"Total on object should equal four\", function(){",
+									"  pm.expect(responseJSON.total).to.eql(4);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": 2,\n\t\"operator\": \"*\",\n\t\"num2\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/plugin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"plugin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Error message if missing parameters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ace7c9f5-f985-4de4-bc0d-6893059b4b0b",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"    pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Error on object should be a string\", function(){",
+									"    pm.expect(responseJSON.error).to.be.a('string');",
+									"});",
+									"",
+									"pm.test(\"Returned error message is expected\", function() {",
+									"   pm.expect(responseJSON.error).to.eql(\"plugin failed, make sure your req.body matches our documentation specifications\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": 1,\n\t\"num2\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/plugin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"plugin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Error Message if parameters are wrong data types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ba2bbaba-70ee-4b91-8ec9-86520c601464",
+								"exec": [
+									"const responseJSON = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Returned data is an object\", function() {",
+									"    pm.expect(Object.isObject(responseJSON)).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"Error on object should be a string\", function(){",
+									"    pm.expect(responseJSON.error).to.be.a('string');",
+									"});",
+									"",
+									"pm.test(\"Returned error message is expected\", function() {",
+									"   pm.expect(responseJSON.error).to.eql(\"num1 and num2 must be a valid integer for the plugin to work, the operator must be a string. Please try again\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"num1\": \"ksdjfo\",\n\t\"num2\": 3,\n\t\"operator\": \"%\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4444/api/plugin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4444",
+							"path": [
+								"api",
+								"plugin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
