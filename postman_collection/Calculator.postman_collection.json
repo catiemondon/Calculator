@@ -956,16 +956,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"num1\": 6,\n\t\"num2\": 3\n}"
+							"raw": "{\n    \"num1\": 6,\n    \"num2\": 3\n}"
 						},
 						"url": {
-							"raw": "http://localhost:4444/division",
+							"raw": "http://localhost:4444/api/division",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4444",
 							"path": [
+								"api",
 								"division"
 							]
 						}
@@ -1017,13 +1018,14 @@
 							"raw": "{\n\t\"num1\": -6,\n\t\"num2\": 3\n}"
 						},
 						"url": {
-							"raw": "http://localhost:4444/division",
+							"raw": "http://localhost:4444/api/division",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4444",
 							"path": [
+								"api",
 								"division"
 							]
 						}
@@ -1075,13 +1077,14 @@
 							"raw": "{\n\t\"num1\": 6.4,\n\t\"num2\": 2\n}"
 						},
 						"url": {
-							"raw": "http://localhost:4444/division",
+							"raw": "http://localhost:4444/api/division",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4444",
 							"path": [
+								"api",
 								"division"
 							]
 						}
@@ -1133,13 +1136,14 @@
 							"raw": "{\n\t\"num1\": \"oweihweoi\",\n\t\"num2\": 3\n}"
 						},
 						"url": {
-							"raw": "http://localhost:4444/division",
+							"raw": "http://localhost:4444/api/division",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4444",
 							"path": [
+								"api",
 								"division"
 							]
 						}
@@ -1191,13 +1195,14 @@
 							"raw": "{\n\t\"num1\": 3\n}"
 						},
 						"url": {
-							"raw": "http://localhost:4444/division",
+							"raw": "http://localhost:4444/api/division",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4444",
 							"path": [
+								"api",
 								"division"
 							]
 						}
