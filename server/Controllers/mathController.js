@@ -13,7 +13,7 @@ module.exports = {
     subtract : (req, res) => {
         const { num1, num2 } = req.body
 
-         //a check in place to make sure parameters are integers to guarantee sum, not concatenated string
+         //a check in place to make sure parameters are integers to guarantee difference, not concatenated string
          if(typeof num1 !== 'number' || typeof num2 !== 'number'){
             return res.status(400).send({error:'Invalid integer type. Please use two numbers as parameters to calculate difference'})
         }
@@ -24,7 +24,7 @@ module.exports = {
     multiply: (req, res) => {
         const { num1, num2 } = req.body
 
-        //a check in place to make sure parameters are integers to guarantee sum, not concatenated string
+        //a check in place to make sure parameters are integers to guarantee product, not concatenated string
         if(typeof num1 !== 'number' || typeof num2 !== 'number'){
             return res.status(400).send({error:'Invalid integer type. Please use two numbers as parameters to calculate product'})
         }
@@ -35,7 +35,7 @@ module.exports = {
     divide: (req, res) => {
         const { num1, num2 } = req.body
 
-         //a check in place to make sure parameters are integers to guarantee sum, not concatenated string
+         //a check in place to make sure parameters are integers to guarantee quotient, not concatenated string
          if(typeof num1 !== 'number' || typeof num2 !== 'number'){
             return res.status(400).send({error:'Invalid integer type. Please use two numbers as parameters to calculate quotient'})
         }
@@ -56,9 +56,9 @@ module.exports = {
             else return res.status(200).send({ 
             //separate and restrict what is passed to eval to limit what can be evaluated, eval can be risky, even with an authenticated user
             total: eval(num1 + operator  + num2)
-        })
-        
+            })
         }
+
         else return res.status(400).send({error:'plugin failed, make sure your req.body matches our documentation specifications'})
     }
 }
